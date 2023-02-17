@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "726166798571",
+    "project_id": "nomads-c8b18",
+    "storage_bucket": "nomads-c8b18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726166798571:android:2abaab980cf9dd70debeae",
+        "android_client_info": {
+          "package_name": "com.hakaton.nomads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726166798571-dmjl7qj18u1ftsvvftksoi4d3nmg70ln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfb3CIBZVp6PAsL8wGKOUujVCGE1vOrvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726166798571-dmjl7qj18u1ftsvvftksoi4d3nmg70ln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
