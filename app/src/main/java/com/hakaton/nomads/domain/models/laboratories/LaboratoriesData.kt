@@ -10,7 +10,7 @@ data class LaboratoriesData(
     val userId: String,
     val universityId: String,
     val onModeration: Boolean,
-    val createTimestamp: Long,
+    val createdTimestamp: Long?,
     val updatedTimestamp: Long,
     val id: String,
     val timestamp: Long

@@ -7,12 +7,12 @@ import com.squareup.moshi.JsonClass
 data class Details(
     @Json(name = "dates") val dates: Dates,
     val name: String,
-    val link: String,
+    val link: String?,
     val price: String,
     val description: String,
-    @Json(name = "video") val video: ArrayList<String>,
-    @Json(name = "photos") val photos: ArrayList<String>,
+    @Json(name = "video") val video: List<String>?,
+    @Json(name = "photos") val photos: List<String>,
     val type: String,
     @Json(name = "WoS")
-    val wos: String
+    val wos: String?
 )

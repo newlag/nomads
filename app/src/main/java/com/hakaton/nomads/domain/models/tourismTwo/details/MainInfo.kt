@@ -13,6 +13,6 @@ data class MainInfo(
     @Json(name = "coordinates") val coordinates: Coordinates,
     val minDays: String,
     val maxDays: String,
-    @Json(name = "photos") val photos: ArrayList<String>,
+    @Json(name = "photos") val photos: List<String> = ArrayList(),
     val mealPlan: String,
 )

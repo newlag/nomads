@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 data class Dates(
     val from: Long,
     val to: Long,
-    val isRegular: Boolean
+    val isRegular: Boolean?
 )
