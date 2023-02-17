@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.hakaton.nomads.fragments.main.MainFragment"
+        android:name="com.hakaton.nomads.ui.fragments.main.MainFragment"
         android:label="MainFragment" />
     <fragment
         android:id="@+id/navigation_ne_main"
-        android:name="com.hakaton.nomads.fragments.neMain.NeMainFragment"
+        android:name="com.hakaton.nomads.ui.fragments.neMain.NeMainFragment"
         android:label="NeMainFragment" />
 
 </navigation>

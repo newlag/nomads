@@ -1,10 +1,11 @@
-package com.hakaton.nomads.fragments.main
+package com.hakaton.nomads.ui.fragments.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.hakaton.nomads.data.repositories.remout.events.EventsRequest
 import com.hakaton.nomads.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -17,6 +18,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+        EventsRequest().requestPlaylist()
         return binding.root
     }
 }

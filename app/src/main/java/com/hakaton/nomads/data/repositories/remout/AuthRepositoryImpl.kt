@@ -1,4 +1,4 @@
-package com.hakaton.nomads.data.repositories
+package com.hakaton.nomads.data.repositories.remout
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

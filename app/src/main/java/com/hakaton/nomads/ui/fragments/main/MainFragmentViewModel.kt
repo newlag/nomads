@@ -1,4 +1,4 @@
-package com.hakaton.nomads.fragments.main
+package com.hakaton.nomads.ui.fragments.main
 
 import androidx.lifecycle.ViewModel
 
