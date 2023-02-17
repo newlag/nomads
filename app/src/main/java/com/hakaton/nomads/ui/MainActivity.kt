@@ -1,7 +1,8 @@
-package com.hakaton.nomads
+package com.hakaton.nomads.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hakaton.nomads.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
