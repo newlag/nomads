@@ -4,8 +4,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Owner(
-    val name: String,
-    val position: String,
-    val phone: String,
-    val email: String
+    val name: String?,
+    val position: String?,
+    val phone: String?,
+    val email: String?
 )

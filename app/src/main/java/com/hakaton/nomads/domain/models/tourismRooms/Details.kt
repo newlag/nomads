@@ -1,4 +1,4 @@
-package com.hakaton.nomads.domain.models.tourismThree
+package com.hakaton.nomads.domain.models.tourismRooms
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -10,5 +10,5 @@ data class Details(
     val amount: String,
     val price: String,
     val description: String,
-    @Json(name = "photos") val photos: ArrayList<String>
+    @Json(name = "photos") val photos: List<String>
 )
