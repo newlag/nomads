@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigations"
+    app:startDestination="@id/navigation_main">
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.hakaton.nomads.fragments.main.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/navigation_ne_main"
+        android:name="com.hakaton.nomads.fragments.neMain.NeMainFragment"
+        android:label="NeMainFragment" />
+
+</navigation>
