@@ -1,23 +1,23 @@
 package com.hakaton.nomads.data.repositories.remote.laboratories
 
 import android.util.Log
-import com.example.radiostation.data.request.errorResponse.ErrorResponseData
 import com.hakaton.nomads.data.repositories.remote.RequestCallback
+import com.hakaton.nomads.data.repositories.remote.errorResponse.ErrorResponseData
 import com.hakaton.nomads.data.repositories.remote.httpConnect.RetrofitClientWrapper
-import com.hakaton.nomads.domain.models.laboratories.LaboratoriesData
+import com.hakaton.nomads.domain.models.laboratories.Laboratories
 
 class LaboratoriesRequest {
-    fun request() {
+    fun request(laboratoriesRequestInterface: LaboratoriesRequestInterface) {
         val client = RetrofitClientWrapper().getRetrofit().create(
             LaboratoriesService::class.java
         )
-        client.requestLabs().enqueue(object : RequestCallback<List<LaboratoriesData>>() {
-            override fun callCallback(body: List<LaboratoriesData>, code: Int) {
-                Log.d("LaboratoriesRequest", "callCallback (size: ${body.size}")
+        client.requestLabs().enqueue(object : RequestCallback<List<Laboratories>>() {
+            override fun callCallback(body: List<Laboratories>, code: Int) {
+                laboratoriesRequestInterface.onSuccess(data = body)
             }
 
             override fun failRequest(errorData: ErrorResponseData) {
-                throw Exception(errorData.errorMessage)
+                laboratoriesRequestInterface.onFailure(errorData = errorData)
             }
         })
     }

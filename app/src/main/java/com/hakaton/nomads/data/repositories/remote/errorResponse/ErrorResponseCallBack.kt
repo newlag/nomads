@@ -1,6 +1,7 @@
 package com.limehd.limeapiclient.requests.errorResponse
 
-import com.example.radiostation.data.request.errorResponse.ErrorResponseData
+import com.hakaton.nomads.data.repositories.remote.errorResponse.ErrorResponseData
+
 
 interface ErrorResponseCallBack {
     fun errorResponse(errorResponseData: ErrorResponseData)

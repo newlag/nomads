@@ -1,6 +1,6 @@
 package com.hakaton.nomads.data.repositories.remote
 
-import com.example.radiostation.data.request.errorResponse.ErrorResponseData
+import com.hakaton.nomads.data.repositories.remote.errorResponse.ErrorResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,3 +1,4 @@
+package com.hakaton.nomads.domain.models.tourismOne
 
 import com.hakaton.nomads.domain.models.tourismOne.Details
 import com.squareup.moshi.Json

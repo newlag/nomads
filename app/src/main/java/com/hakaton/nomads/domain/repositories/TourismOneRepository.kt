@@ -1,7 +1,7 @@
 package com.hakaton.nomads.domain.repositories
 
-import TourismOne
 import androidx.lifecycle.LiveData
+import com.hakaton.nomads.domain.models.tourismOne.TourismOne
 
 interface TourismOneRepository {
 

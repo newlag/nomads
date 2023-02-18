@@ -1,4 +1,4 @@
-package com.example.radiostation.data.request.errorResponse
+package com.hakaton.nomads.data.repositories.remote.errorResponse
 
 class ErrorResponseData(
     val errorMessage: String = "",

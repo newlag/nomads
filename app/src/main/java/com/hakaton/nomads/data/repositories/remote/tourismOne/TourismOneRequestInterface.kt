@@ -1,7 +1,7 @@
 package com.hakaton.nomads.data.repositories.remote.tourismOne
 
-import TourismOne
-import com.example.radiostation.data.request.errorResponse.ErrorResponseData
+import com.hakaton.nomads.data.repositories.remote.errorResponse.ErrorResponseData
+import com.hakaton.nomads.domain.models.tourismOne.TourismOne
 
 interface TourismOneRequestInterface {
     fun onSuccess(data: List<TourismOne>)
