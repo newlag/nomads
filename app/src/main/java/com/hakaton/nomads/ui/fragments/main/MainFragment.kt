@@ -1,25 +1,21 @@
 package com.hakaton.nomads.ui.fragments.main
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.hakaton.nomads.data.repositories.*
 import com.hakaton.nomads.databinding.FragmentMainBinding
 import com.hakaton.nomads.domain.repositories.OrganizationsRepository
 import com.hakaton.nomads.domain.repositories.TourismRoomsRepository
-import com.hakaton.nomads.ui.MainActivity
-import com.hakaton.nomads.ui.fragments.main.adapters.EventMainDataClass
-import com.hakaton.nomads.ui.fragments.main.adapters.HabitationMainDataClass
-import com.hakaton.nomads.ui.fragments.main.adapters.MainFragmentRecyclerView
-import com.hakaton.nomads.ui.fragments.main.adapters.TwoTextDataClass
-import com.yandex.metrica.YandexMetrica
+import com.hakaton.nomads.ui.fragments.main.adapters.*
+import kotlinx.coroutines.flow.*
 
 class MainFragment : Fragment() {
     var _binding: FragmentMainBinding? = null
@@ -31,65 +27,40 @@ class MainFragment : Fragment() {
     private val eventsRepository: EventsRepositoryImpl = EventsRepositoryImpl()
 
     val binding get() = _binding!!
+    val list = mutableListOf<SelectorMainCard>()
+    val adapter = MainFragmentRecyclerView(list)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-        roomsRepository.getData().observe(viewLifecycleOwner) {
-            it?.let {
-                Log.d("MainFragment", "Получен список Rooms с размером ${it.size}")
-            } ?: run {
-                Log.d("MainFragment", "Ошибка получения Rooms")
-            }
-        }
-        organizationsRepository.getData().observe(viewLifecycleOwner) {
-            it?.let {
-                Log.d("MainFragment", "Получен список Tourism One с размером ${it.size}")
-            } ?: run {
-                Log.d("MainFragment", "Ошибка получения Tourism One")
-            }
-        }
-        tourismTwoRepository.getData().observe(viewLifecycleOwner) {
-            it?.let {
-                Log.d("MainFragment", "Получен список Tourism Two с размером ${it.size}")
-            } ?: run {
-                Log.d("MainFragment", "Ошибка получения Tourism Two")
-            }
-        }
-        laboratoriesRepository.getData().observe(viewLifecycleOwner) {
-            it?.let {
-                Log.d("MainFragment", "Получен список Laboratories с размером ${it.size}")
-            } ?: run {
-                Log.d("MainFragment", "Ошибка получения Laboratories")
-            }
-        }
-        eventsRepository.getData().observe(viewLifecycleOwner) {
-            it?.let {
-                Log.d("MainFragment", "Получен список Events с размером ${it.size}")
-            } ?: run {
-                Log.d("MainFragment", "Ошибка получения Events")
-            }
-        }
         binding.recyclerView.adapter =
-            MainFragmentRecyclerView(
-                listOf(
-                    HabitationMainDataClass(),
-                    TwoTextDataClass("", ""),
-                    EventMainDataClass(),
-                    EventMainDataClass(),
-                    EventMainDataClass(),
-                    EventMainDataClass(),
-                )
-            )
+            adapter
+
+
+        tourismTwoRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0).combine(
+            eventsRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0)
+        ) { tourism, event ->
+            if (tourism != null || event != null) {
+                list.clear()
+                list.add(HabitationMainDataClass(tourism!!))
+                list.add(TwoTextDataClass("", ""))
+                event?.map {
+                    list.add(EventMainDataClass(it))
+                }
+            }
+        }.onEach {
+            adapter.notifyDataSetChanged()
+        }.launchIn(lifecycleScope)
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w("MainFragment", "Fetching FCM registration token failed", task.exception)
                 return@OnCompleteListener
             }
             // Get new FCM registration token
-            val token = task.result
         })
         return binding.root
     }

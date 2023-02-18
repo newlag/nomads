@@ -1,4 +1,4 @@
-package com.hakaton.nomads.ui.fragments.neMain
+package com.hakaton.nomads.ui.fragments.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater
