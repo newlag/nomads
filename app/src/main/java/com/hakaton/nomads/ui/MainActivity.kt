@@ -39,6 +39,25 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.navigation_main -> {
+                    navView.visibility = View.VISIBLE
+
+                }
+                R.id.navigation_favorite -> {
+                    navView.visibility = View.VISIBLE
+                }
+
+                R.id.navigation_info -> {
+                    navView.visibility = View.VISIBLE
+                }
+                else -> {
+                    navView.visibility = View.GONE
+                }
+            }
+        }
+
 
 //        val authLauncher = VK.login(this) { result: VKAuthenticationResult ->
 //            when (result) {
