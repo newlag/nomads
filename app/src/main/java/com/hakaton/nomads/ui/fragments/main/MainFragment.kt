@@ -60,11 +60,7 @@ class MainFragment : Fragment() {
                 Log.w("MainFragment", "Fetching FCM registration token failed", task.exception)
                 return@OnCompleteListener
             }
-
             // Get new FCM registration token
-            val token = task.result
-
-//            Toast.makeText(context, "token received", Toast.LENGTH_SHORT).show()
         })
         return binding.root
     }
