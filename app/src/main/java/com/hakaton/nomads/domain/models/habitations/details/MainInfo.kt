@@ -1,4 +1,4 @@
-package com.hakaton.nomads.domain.models.tourismTwo.details
+package com.hakaton.nomads.domain.models.habitations.details
 
 import com.hakaton.nomads.domain.models.laboratories.details.Coordinates
 import com.squareup.moshi.Json

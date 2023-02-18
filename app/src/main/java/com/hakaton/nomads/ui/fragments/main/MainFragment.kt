@@ -7,17 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.hakaton.nomads.data.repositories.*
-import com.hakaton.nomads.data.repositories.remote.laboratories.LaboratoriesRequest
 import com.hakaton.nomads.databinding.FragmentMainBinding
-import com.hakaton.nomads.domain.repositories.TourismOneRepository
+import com.hakaton.nomads.domain.repositories.OrganizationsRepository
 import com.hakaton.nomads.domain.repositories.TourismRoomsRepository
 
 class MainFragment : Fragment() {
     var _binding: FragmentMainBinding? = null
 
     private val roomsRepository: TourismRoomsRepository = TourismRoomsRepositoryImpl()
-    private val tourismOneRepository: TourismOneRepository = TourismOneRepositoryImpl()
-    private val tourismTwoRepository: TourismTwoRepositoryImpl = TourismTwoRepositoryImpl()
+    private val organizationsRepository: OrganizationsRepository = OrganizationsRepositoryImpl()
+    private val tourismTwoRepository: HabitationsRepositoryImpl = HabitationsRepositoryImpl()
     private val laboratoriesRepository: LaboratoriesRepositoryImpl = LaboratoriesRepositoryImpl()
     private val eventsRepository: EventsRepositoryImpl = EventsRepositoryImpl()
 
@@ -35,7 +34,7 @@ class MainFragment : Fragment() {
                 Log.d("MainFragment", "Ошибка получения Rooms")
             }
         }
-        tourismOneRepository.getData().observe(viewLifecycleOwner) {
+        organizationsRepository.getData().observe(viewLifecycleOwner) {
             it?.let {
                 Log.d("MainFragment", "Получен список Tourism One с размером ${it.size}")
             } ?: run {

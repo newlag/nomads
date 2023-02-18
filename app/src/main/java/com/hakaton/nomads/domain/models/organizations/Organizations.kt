@@ -1,11 +1,10 @@
-package com.hakaton.nomads.domain.models.tourismOne
+package com.hakaton.nomads.domain.models.organizations
 
-import com.hakaton.nomads.domain.models.tourismOne.Details
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class TourismOne(
+data class Organizations(
     val userId: String,
     val name: String?,
     val description: String?,
