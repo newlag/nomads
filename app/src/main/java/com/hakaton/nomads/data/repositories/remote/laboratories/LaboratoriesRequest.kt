@@ -1,9 +1,9 @@
-package com.hakaton.nomads.data.repositories.remout.laboratories
+package com.hakaton.nomads.data.repositories.remote.laboratories
 
 import android.util.Log
 import com.example.radiostation.data.request.errorResponse.ErrorResponseData
-import com.hakaton.nomads.data.repositories.remout.RequestCallback
-import com.hakaton.nomads.data.repositories.remout.httpConnect.RetrofitClientWrapper
+import com.hakaton.nomads.data.repositories.remote.RequestCallback
+import com.hakaton.nomads.data.repositories.remote.httpConnect.RetrofitClientWrapper
 import com.hakaton.nomads.domain.models.laboratories.LaboratoriesData
 
 class LaboratoriesRequest {

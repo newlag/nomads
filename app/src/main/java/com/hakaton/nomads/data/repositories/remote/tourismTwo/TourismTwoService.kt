@@ -1,7 +1,6 @@
-package com.hakaton.nomads.data.repositories.remout.tourismTwo
+package com.hakaton.nomads.data.repositories.remote.tourismTwo
 
-import com.hakaton.nomads.data.repositories.remout.HttpRequestTV
-import com.hakaton.nomads.domain.models.tourismOne.TourismOne
+import com.hakaton.nomads.data.repositories.remote.HttpRequestTV
 import com.hakaton.nomads.domain.models.tourismTwo.TourismTwo
 import retrofit2.Call
 import retrofit2.http.GET

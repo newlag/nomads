@@ -1,4 +1,4 @@
-package com.hakaton.nomads.data.repositories.remout
+package com.hakaton.nomads.data.repositories.remote
 
 class HttpRequestTV {
     companion object {

@@ -1,6 +1,6 @@
-package com.hakaton.nomads.data.repositories.remout.events
+package com.hakaton.nomads.data.repositories.remote.events
 
-import com.hakaton.nomads.data.repositories.remout.HttpRequestTV
+import com.hakaton.nomads.data.repositories.remote.HttpRequestTV
 import com.hakaton.nomads.domain.models.events.EventsData
 import retrofit2.Call
 import retrofit2.http.GET

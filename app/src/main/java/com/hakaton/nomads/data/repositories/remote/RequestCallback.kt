@@ -1,4 +1,4 @@
-package com.hakaton.nomads.data.repositories.remout
+package com.hakaton.nomads.data.repositories.remote
 
 import com.example.radiostation.data.request.errorResponse.ErrorResponseData
 import retrofit2.Call

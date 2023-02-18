@@ -1,4 +1,4 @@
-package com.hakaton.nomads.data.repositories.remout.httpConnect;
+package com.hakaton.nomads.data.repositories.remote.httpConnect;
 
 import java.io.IOException;
 import java.net.InetAddress;

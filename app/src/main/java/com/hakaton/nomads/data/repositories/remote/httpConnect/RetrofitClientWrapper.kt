@@ -1,6 +1,6 @@
-package com.hakaton.nomads.data.repositories.remout.httpConnect
+package com.hakaton.nomads.data.repositories.remote.httpConnect
 
-import com.hakaton.nomads.data.repositories.remout.HttpRequestTV
+import com.hakaton.nomads.data.repositories.remote.HttpRequestTV
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
