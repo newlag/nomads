@@ -16,5 +16,5 @@ data class TourismTwo(
     val id: String,
     val timestamp: Long,
     val updatedTimestamp: Long,
-    //@Json(name = "rooms") val rooms: Map<String, Rooms>
+    @Json(name = "rooms") val rooms: Map<String, Rooms>
 )
