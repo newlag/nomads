@@ -15,6 +15,13 @@ class HabitationDataClass(val habitations: Habitations) : SelectorMainCard {
 
 }
 
+class HabitationFavDataClass(val habitation: Habitations) : SelectorMainCard {
+
+}
+
+class HabitationFavHeaderDataClass(val habitation: Habitations) : SelectorMainCard {
+}
+
 class EventMainDataClass(val event: Events) : SelectorMainCard {
 
 }
