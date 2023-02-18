@@ -4,7 +4,6 @@ import android.util.Log
 import com.example.radiostation.data.request.errorResponse.ErrorResponseData
 import com.hakaton.nomads.data.repositories.remout.RequestCallback
 import com.hakaton.nomads.data.repositories.remout.httpConnect.RetrofitClientWrapper
-import com.hakaton.nomads.domain.models.laboratories.LaboratoriesData
 import com.hakaton.nomads.domain.models.tourismRooms.TourismRooms
 
 class RoomsRequest {

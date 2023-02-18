@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.hakaton.nomads.data.repositories.remout.events.EventsRequest
 import com.hakaton.nomads.data.repositories.remout.laboratories.LaboratoriesRequest
-import com.hakaton.nomads.data.repositories.remout.rooms.RoomsRequest
-import com.hakaton.nomads.data.repositories.remout.tourismOne.TourismOneRequest
-import com.hakaton.nomads.data.repositories.remout.tourismTwo.TourismTwoRequest
 import com.hakaton.nomads.databinding.FragmentMainBinding
-import com.hakaton.nomads.domain.models.tourismRooms.TourismRooms
+import com.hakaton.nomads.ui.fragments.main.adapters.EventMainDataClass
+import com.hakaton.nomads.ui.fragments.main.adapters.HabitationMainDataClass
+import com.hakaton.nomads.ui.fragments.main.adapters.MainFragmentRecyclerView
+import com.hakaton.nomads.ui.fragments.main.adapters.TwoTextDataClass
 
 class MainFragment : Fragment() {
     var _binding: FragmentMainBinding? = null
@@ -28,6 +27,19 @@ class MainFragment : Fragment() {
         //TourismOneRequest().request()
         //TourismTwoRequest().request()
         LaboratoriesRequest().request()
+        binding.recyclerView.adapter =
+            MainFragmentRecyclerView(
+                listOf(
+                    EventMainDataClass(),
+                    TwoTextDataClass("", ""),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass()
+                )
+            )
         return binding.root
     }
 }

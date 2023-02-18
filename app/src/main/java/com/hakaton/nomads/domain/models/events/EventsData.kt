@@ -6,12 +6,12 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class EventsData(
-   @Json(name = "details") val details: Details,
-   val userId: String,
-   val universityId: String,
-   val createdTimestamp: Long,
-   val updatedTimestamp: Long,
-   val onModeration: Boolean,
-   val id: String,
-   val timestamp: Long
+    @Json(name = "details") val details: Details,
+    val userId: String,
+    val universityId: String,
+    val createdTimestamp: Long,
+    val updatedTimestamp: Long,
+    val onModeration: Boolean,
+    val id: String,
+    val timestamp: Long
 )

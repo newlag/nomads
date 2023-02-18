@@ -1,4 +1,3 @@
-
 import com.hakaton.nomads.domain.models.tourismOne.Details
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

@@ -4,13 +4,9 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.activity.result.ActivityResultCallback
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hakaton.nomads.domain.repositories.VKAuthRepository
-import com.vk.api.sdk.VK
-import com.vk.api.sdk.auth.VKAuthenticationResult
-import com.vk.api.sdk.auth.VKScope
 
 private const val SHARED_PREFS: String = "nomads"
 private const val ACCESS_TOKEN: String = "access_token"
