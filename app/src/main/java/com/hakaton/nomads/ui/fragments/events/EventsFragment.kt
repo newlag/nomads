@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.hakaton.nomads.data.repositories.EventsRepositoryImpl
 import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentEventsBinding
+import com.hakaton.nomads.ui.fragments.BaseSecondaryFragment
 import com.hakaton.nomads.ui.fragments.events.recycler.ElementAdapter
 import com.hakaton.nomads.ui.fragments.main.MainRecyclerClickListener
 import com.hakaton.nomads.ui.fragments.main.adapters.EventMainDataClass
@@ -20,14 +21,13 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 
-class EventsFragment : Fragment(), MainRecyclerClickListener {
+class EventsFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
     var _binding: FragmentEventsBinding? = null
     val binding get() = _binding!!
 
     val list = mutableListOf<SelectorMainCard>()
     val adapter = ElementAdapter(list, this)
     private val eventsRepository: EventsRepositoryImpl = EventsRepositoryImpl()
-    lateinit var viewModel: ToolbarViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,9 +37,6 @@ class EventsFragment : Fragment(), MainRecyclerClickListener {
         _binding = FragmentEventsBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter =
             adapter
-        viewModel = ViewModelProvider(requireActivity())[ToolbarViewModel::class.java]
-        viewModel.hideToolbar()
-
         return binding.root
     }
 

@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        binding.imageViewProfile.setOnClickListener {
+            navController.navigate(R.id.profileFragment)
+        }
 
 //        val authLauncher = VK.login(this) { result: VKAuthenticationResult ->
 //            when (result) {
