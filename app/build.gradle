@@ -72,4 +72,7 @@ dependencies {
     //Dagger
     implementation 'com.google.dagger:dagger:2.44.2'
     kapt 'com.google.dagger:dagger-compiler:2.44.2'
+
+    implementation 'com.vk:android-sdk-core:3.5.1'
+    implementation 'com.vk:android-sdk-api:3.5.1'
 }

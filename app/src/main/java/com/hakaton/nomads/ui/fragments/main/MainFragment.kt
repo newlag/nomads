@@ -7,9 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.hakaton.nomads.data.repositories.*
+import com.hakaton.nomads.data.repositories.remout.laboratories.LaboratoriesRequest
 import com.hakaton.nomads.databinding.FragmentMainBinding
 import com.hakaton.nomads.domain.repositories.OrganizationsRepository
 import com.hakaton.nomads.domain.repositories.TourismRoomsRepository
+import com.hakaton.nomads.ui.fragments.main.adapters.EventMainDataClass
+import com.hakaton.nomads.ui.fragments.main.adapters.HabitationMainDataClass
+import com.hakaton.nomads.ui.fragments.main.adapters.MainFragmentRecyclerView
+import com.hakaton.nomads.ui.fragments.main.adapters.TwoTextDataClass
 
 class MainFragment : Fragment() {
     var _binding: FragmentMainBinding? = null
@@ -62,6 +67,19 @@ class MainFragment : Fragment() {
                 Log.d("MainFragment", "Ошибка получения Events")
             }
         }
+        binding.recyclerView.adapter =
+            MainFragmentRecyclerView(
+                listOf(
+                    EventMainDataClass(),
+                    TwoTextDataClass("", ""),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass(),
+                    HabitationMainDataClass()
+                )
+            )
         return binding.root
     }
 }
