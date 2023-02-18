@@ -5,16 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hakaton.nomads.R
 import com.hakaton.nomads.ui.fragments.main.MainRecyclerClickListener
-import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.BaseRecyclerViewHolder
-import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.EventRecyclerViewHolder
-import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.HabitationsContainerRecyclerViewHolder
-import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.ViewHolderTwoText
+import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.*
 
 class MainFragmentRecyclerView(
-    val list: List<SelectorMainCard>,
+    val isFavourite: Boolean = false,
+    var list: List<SelectorMainCard>,
     val click: MainRecyclerClickListener
 ) :
     RecyclerView.Adapter<BaseRecyclerViewHolder>() {
+
 
     override fun getItemViewType(position: Int): Int {
 
@@ -24,6 +23,12 @@ class MainFragmentRecyclerView(
             }
             is TwoTextDataClass -> {
                 1
+            }
+            is HabitationFavHeaderDataClass -> {
+                4
+            }
+            is HabitationFavDataClass -> {
+                5
             }
             else -> {
                 2
@@ -43,6 +48,16 @@ class MainFragmentRecyclerView(
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.view_volder_main_two_text, parent, false)
                 ViewHolderTwoText(view)
+            }
+            4 -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.view_volder_habitations_in_favs_header, parent, false)
+                HabitationsFavRecyclerViewHolder(view)
+            }
+            5 -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.view_volder_habitations_in_favs, parent, false)
+                HabitationsFavRecyclerViewHolder(view)
             }
             else -> {
                 val view = LayoutInflater.from(parent.context)

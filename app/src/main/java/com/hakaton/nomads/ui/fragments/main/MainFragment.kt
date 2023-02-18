@@ -30,7 +30,7 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
 
     val binding get() = _binding!!
     val list = mutableListOf<SelectorMainCard>()
-    val adapter = MainFragmentRecyclerView(list, this)
+    val adapter = MainFragmentRecyclerView(list = list, click = this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
