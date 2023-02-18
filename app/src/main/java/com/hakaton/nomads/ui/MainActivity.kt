@@ -2,14 +2,20 @@ package com.hakaton.nomads.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hakaton.nomads.R
 import com.hakaton.nomads.databinding.ActivityMainBinding
+import com.hakaton.nomads.utils.ToolbarViewModel
 import com.vk.api.sdk.VKApiCallback
 import com.vk.sdk.api.users.dto.UsersUserFull
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,6 +23,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val viewModel = ViewModelProvider(this)[ToolbarViewModel::class.java]
+        viewModel.getStateFlow().onEach {
+            if (it) {
+                binding.toolBarMain.visibility = View.VISIBLE
+            } else {
+                binding.toolBarMain.visibility = View.GONE
+            }
+        }.launchIn(lifecycleScope)
 
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.navView

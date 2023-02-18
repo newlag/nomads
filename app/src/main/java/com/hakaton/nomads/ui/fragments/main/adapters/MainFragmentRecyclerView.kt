@@ -4,13 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hakaton.nomads.R
+import com.hakaton.nomads.ui.fragments.main.MainRecyclerClickListener
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.BaseRecyclerViewHolder
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.EventRecyclerViewHolder
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.HabitationsContainerRecyclerViewHolder
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.ViewHolderTwoText
 
-class MainFragmentRecyclerView(val list: List<SelectorMainCard>) :
+class MainFragmentRecyclerView(
+    val list: List<SelectorMainCard>,
+    val click: MainRecyclerClickListener
+) :
     RecyclerView.Adapter<BaseRecyclerViewHolder>() {
+
     override fun getItemViewType(position: Int): Int {
 
         return when (list[position]) {
@@ -48,7 +53,7 @@ class MainFragmentRecyclerView(val list: List<SelectorMainCard>) :
     }
 
     override fun onBindViewHolder(holder: BaseRecyclerViewHolder, position: Int) {
-        holder.onBind(list[position])
+        holder.onBind(list[position], click)
     }
 
     override fun getItemCount() = list.size

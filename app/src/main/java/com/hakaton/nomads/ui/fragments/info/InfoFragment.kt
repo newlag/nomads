@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.hakaton.nomads.databinding.FragmentInfoBinding
+import com.hakaton.nomads.ui.fragments.BaseMainFragment
 
-class InfoFragment : Fragment() {
+class InfoFragment : BaseMainFragment() {
     var _binding: FragmentInfoBinding? = null
     val binding get() = _binding!!
     override fun onCreateView(
