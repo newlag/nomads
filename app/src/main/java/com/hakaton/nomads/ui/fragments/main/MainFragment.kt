@@ -52,9 +52,9 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
                 SingletonData.getInstance().eventList.addAll(event.toList())
 
                 list.clear()
-                list.add(HabitationMainDataClass(tourism))
+                list.add(HabitationMainDataClass(tourism.subList(0, 10)))
                 list.add(TwoTextDataClass("", ""))
-                event.map {
+                event.subList(0, 10).map {
                     list.add(EventMainDataClass(it))
                 }
             }
@@ -69,6 +69,7 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
             }
             // Get new FCM registration token
         })
+        findNavController()
         return binding.root
     }
 
