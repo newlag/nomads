@@ -11,6 +11,10 @@ class HabitationMainDataClass(val habitations: List<Habitations>) : SelectorMain
 
 }
 
+class HabitationDataClass(val habitations: Habitations) : SelectorMainCard {
+
+}
+
 class EventMainDataClass(val event: Events) : SelectorMainCard {
 
 }

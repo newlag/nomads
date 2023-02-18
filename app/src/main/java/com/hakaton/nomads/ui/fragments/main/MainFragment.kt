@@ -5,19 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import com.hakaton.nomads.R
 import com.hakaton.nomads.data.repositories.*
+import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentMainBinding
 import com.hakaton.nomads.domain.repositories.OrganizationsRepository
 import com.hakaton.nomads.domain.repositories.TourismRoomsRepository
+import com.hakaton.nomads.ui.fragments.BaseMainFragment
 import com.hakaton.nomads.ui.fragments.main.adapters.*
 import kotlinx.coroutines.flow.*
 
-class MainFragment : Fragment() {
+class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
     var _binding: FragmentMainBinding? = null
 
     private val roomsRepository: TourismRoomsRepository = TourismRoomsRepositoryImpl()
@@ -28,7 +30,7 @@ class MainFragment : Fragment() {
 
     val binding get() = _binding!!
     val list = mutableListOf<SelectorMainCard>()
-    val adapter = MainFragmentRecyclerView(list)
+    val adapter = MainFragmentRecyclerView(list, this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,11 +45,16 @@ class MainFragment : Fragment() {
         tourismTwoRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0).combine(
             eventsRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0)
         ) { tourism, event ->
-            if (tourism != null || event != null) {
+            if (tourism != null && event != null) {
+                SingletonData.getInstance().habitationstList.clear()
+                SingletonData.getInstance().habitationstList.addAll(tourism.toList())
+                SingletonData.getInstance().eventList.clear()
+                SingletonData.getInstance().eventList.addAll(event.toList())
+
                 list.clear()
-                list.add(HabitationMainDataClass(tourism!!))
+                list.add(HabitationMainDataClass(tourism))
                 list.add(TwoTextDataClass("", ""))
-                event?.map {
+                event.map {
                     list.add(EventMainDataClass(it))
                 }
             }
@@ -63,5 +70,13 @@ class MainFragment : Fragment() {
             // Get new FCM registration token
         })
         return binding.root
+    }
+
+    override fun onClickEvent() {
+        findNavController().navigate(R.id.eventsFragment)
+    }
+
+    override fun onClickHabitation() {
+        findNavController().navigate(R.id.habitationFragment)
     }
 }

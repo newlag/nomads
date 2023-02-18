@@ -8,15 +8,31 @@
     <fragment
         android:id="@+id/navigation_main"
         android:name="com.hakaton.nomads.ui.fragments.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_navigation_main_to_eventsFragment"
+            app:destination="@id/eventsFragment" />
+        <action
+            android:id="@+id/action_navigation_main_to_habitationFragment"
+            app:destination="@id/habitationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_favorite"
-        android:name="com.hakaton.nomads.ui.fragments.favorite.NeMainFragment"
+        android:name="com.hakaton.nomads.ui.fragments.favorite.FavoriteFragment"
         android:label="NeMainFragment" />
     <fragment
         android:id="@+id/navigation_info"
         android:name="com.hakaton.nomads.ui.fragments.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.hakaton.nomads.ui.fragments.events.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/habitationFragment"
+        android:name="com.hakaton.nomads.ui.fragments.habitation.HabitationFragment"
+        android:label="HabitationFragment" />
 
 </navigation>
