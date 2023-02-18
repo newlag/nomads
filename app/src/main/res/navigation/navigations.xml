@@ -9,7 +9,7 @@
         android:name="com.hakaton.nomads.ui.fragments.main.MainFragment"
         android:label="MainFragment" />
     <fragment
-        android:id="@+id/navigation_ne_main"
+        android:id="@+id/navigation_favorite"
         android:name="com.hakaton.nomads.ui.fragments.neMain.NeMainFragment"
         android:label="NeMainFragment" />
 

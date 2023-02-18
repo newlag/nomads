@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hakaton.nomads.R
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.BaseRecyclerViewHolder
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.EventRecyclerViewHolder
-import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.HabitationsRecyclerViewHolder
+import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.HabitationsContainerRecyclerViewHolder
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.ViewHolderTwoText
 
 class MainFragmentRecyclerView(val list: List<SelectorMainCard>) :
@@ -30,8 +30,9 @@ class MainFragmentRecyclerView(val list: List<SelectorMainCard>) :
         return when (viewType) {
             0 -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_holder_habitation, parent, false)
-                HabitationsRecyclerViewHolder(view)
+                    .inflate(R.layout.view_volder_habitations_in_fragment, parent, false)
+
+                HabitationsContainerRecyclerViewHolder(view)
             }
             1 -> {
                 val view = LayoutInflater.from(parent.context)
@@ -40,15 +41,17 @@ class MainFragmentRecyclerView(val list: List<SelectorMainCard>) :
             }
             else -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_volder_events_in_fragment, parent, false)
+                    .inflate(R.layout.view_holder_events, parent, false)
                 EventRecyclerViewHolder(view)
             }
         }
     }
 
-    override fun getItemCount() = list.size
-
     override fun onBindViewHolder(holder: BaseRecyclerViewHolder, position: Int) {
         holder.onBind(list[position])
     }
+
+    override fun getItemCount() = list.size
+
+
 }

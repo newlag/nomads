@@ -70,14 +70,12 @@ class MainFragment : Fragment() {
         binding.recyclerView.adapter =
             MainFragmentRecyclerView(
                 listOf(
-                    EventMainDataClass(),
+                    HabitationMainDataClass(),
                     TwoTextDataClass("", ""),
-                    HabitationMainDataClass(),
-                    HabitationMainDataClass(),
-                    HabitationMainDataClass(),
-                    HabitationMainDataClass(),
-                    HabitationMainDataClass(),
-                    HabitationMainDataClass()
+                    EventMainDataClass(),
+                    EventMainDataClass(),
+                    EventMainDataClass(),
+                    EventMainDataClass(),
                 )
             )
         return binding.root

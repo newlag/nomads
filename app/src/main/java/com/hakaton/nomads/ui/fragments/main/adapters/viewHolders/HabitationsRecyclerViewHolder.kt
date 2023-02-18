@@ -1,10 +1,12 @@
 package com.hakaton.nomads.ui.fragments.main.adapters.viewHolders
 
 import android.view.View
-import com.hakaton.nomads.ui.fragments.main.adapters.SelectorMainCard
+import androidx.recyclerview.widget.RecyclerView
 
-class HabitationsRecyclerViewHolder(itemView: View):BaseRecyclerViewHolder(itemView) {
-    override fun onBind(selectorMainCard: SelectorMainCard) {
+class HabitationsRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    fun onBind() {
+
 
     }
 }
