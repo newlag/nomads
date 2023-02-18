@@ -6,7 +6,13 @@
         android:title="@string/title_main" />
 
     <item
-        android:id="@+id/navigation_ne_main"
-        android:title="@string/title_ne_main" />
+        android:id="@+id/navigation_favorite"
+        android:title="@string/title_favorite" />
+    <item
+        android:id="@+id/navigation_info"
+        android:title="@string/title_info" />
+    <item
+        android:id="@+id/navigation_menu"
+        android:title="@string/title_menu" />
 
 </menu>

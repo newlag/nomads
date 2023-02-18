@@ -25,20 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-//        val list = mutableListOf<UsersFields>()
-//        UsersFields.values().map {
-//            list.add(it)
-//        }
-//        VK.execute(
-//            UsersService().usersGet(
-//                listOf(UserId(297825898)),
-//                list.subList(0, 64)
-//            ), personDataCallback
-//        )
+
 //        val authLauncher = VK.login(this) { result: VKAuthenticationResult ->
 //            when (result) {
 //                is VKAuthenticationResult.Success -> {
-//
+//                    val list = mutableListOf<UsersFields>()
+//                    UsersFields.values().map {
+//                        list.add(it)
+//                    }
+//                    VK.execute(
+//                        UsersService().usersGet(
+//                            listOf(result.token.userId),
+//                            list.subList(0, 64)
+//                        ), personDataCallback
+//                    )
 //                }
 //                is VKAuthenticationResult.Failed -> {
 //                    // User didn't pass authorization
