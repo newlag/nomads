@@ -2,6 +2,7 @@ package com.hakaton.nomads.ui.fragments.main.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.hakaton.nomads.R
 import com.hakaton.nomads.ui.fragments.main.adapters.viewHolders.HabitationsRecyclerViewHolder
@@ -15,14 +16,24 @@ class HabitationsMainRecyclerAdapter(val list: HabitationMainDataClass) :
     ): HabitationsRecyclerViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_holder_habitation, parent, false)
-        view.layoutParams = ViewGroup.LayoutParams(
+        val param = LinearLayout.LayoutParams(
             SizesUtil().calculateDpToPx(parent.context, 250),
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
         )
+        param.setMargins(8, 8, 8, 8)
+        view.layoutParams = param
         return HabitationsRecyclerViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HabitationsRecyclerViewHolder, position: Int) {
+        if (position == 0) {
+            val param = LinearLayout.LayoutParams(
+                SizesUtil().calculateDpToPx(holder.itemView.context, 250),
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            )
+            param.setMargins(35, 8, 8, 8)
+            holder.itemView.layoutParams = param
+        }
         holder.onBind(list.habitations[position])
     }
 

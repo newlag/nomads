@@ -1,11 +1,15 @@
 package com.hakaton.nomads.ui.fragments.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.hakaton.nomads.data.repositories.*
 import com.hakaton.nomads.databinding.FragmentMainBinding
 import com.hakaton.nomads.domain.repositories.OrganizationsRepository
@@ -51,6 +55,17 @@ class MainFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
 
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("MainFragment", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+//            Toast.makeText(context, "token received", Toast.LENGTH_SHORT).show()
+        })
         return binding.root
     }
 }

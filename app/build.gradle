@@ -22,7 +22,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -52,8 +52,12 @@ dependencies {
 
     //test
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation "com.google.firebase:firebase-messaging:22.0.0"
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx:20.3.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    implementation "com.google.android.gms:play-services-base:17.5.0"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     //room
@@ -75,6 +79,13 @@ dependencies {
 
     implementation 'com.vk:android-sdk-core:3.5.1'
     implementation 'com.vk:android-sdk-api:3.5.1'
+
+    // AppMetrica SDK.
+    implementation 'com.yandex.android:mobmetricalib:5.2.0'
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation("com.yandex.android:mobmetricapushlib:2.0.0") {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
     //glide
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     kapt 'com.github.bumptech.glide:compiler:4.14.2'
