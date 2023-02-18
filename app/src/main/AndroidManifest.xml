@@ -32,6 +32,26 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <service
+            android:name=".services.FirebaseMessagingService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="100">
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.yandex.metrica.push.firebase.MetricaMessagingService"
+            tools:node="remove" />
+
+        <receiver
+            android:name=".services.SilentPushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="${applicationId}.action.ymp.SILENT_PUSH_RECEIVE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
