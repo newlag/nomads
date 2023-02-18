@@ -1,6 +1,5 @@
 package com.hakaton.nomads.domain.models.events.details
 
-import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)

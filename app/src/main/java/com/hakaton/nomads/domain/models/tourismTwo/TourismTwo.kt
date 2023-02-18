@@ -1,10 +1,7 @@
 package com.hakaton.nomads.domain.models.tourismTwo
 
 import com.hakaton.nomads.domain.models.tourismTwo.details.Details
-import com.hakaton.nomads.domain.models.tourismTwo.details.rooms.Rooms
-import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import org.json.JSONObject
 
 @JsonClass(generateAdapter = true)
 data class TourismTwo(
