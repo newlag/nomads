@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.hakaton.nomads.R
 import com.hakaton.nomads.data.repositories.EventsRepositoryImpl
 import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentEventsBinding
@@ -62,17 +64,18 @@ class EventsFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onClickEvent() {
-
-    }
-
-    override fun onClickHabitation() {
-
-    }
-
     override fun onDetach() {
         viewModel.showToolbar()
 
         super.onDetach()
+    }
+
+    override fun onClickEvent(id: String) {
+    }
+
+    override fun onClickHabitation(id: String) {
+        val bundle = Bundle()
+        bundle.putString("playlistId", id)
+        findNavController().navigate(R.id.habitationCardFragment, bundle)
     }
 }

@@ -1,6 +1,6 @@
 package com.hakaton.nomads.ui.fragments.main
 
 interface MainRecyclerClickListener {
-    fun onClickEvent()
-    fun onClickHabitation()
+    fun onClickEvent(id:String)
+    fun onClickHabitation(id:String)
 }

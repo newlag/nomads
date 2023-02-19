@@ -24,6 +24,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@animator/nav_default_pop_enter_anim"
             app:popExitAnim="@animator/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_navigation_main_to_habitationCardFragment"
+            app:destination="@id/habitationCardFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_favorite"
@@ -43,7 +46,11 @@
         android:id="@+id/habitationFragment"
         android:name="com.hakaton.nomads.ui.fragments.habitation.HabitationFragment"
         android:label="HabitationFragment"
-        tools:layout="@layout/fragment_habitation" />
+        tools:layout="@layout/fragment_habitation" >
+        <action
+            android:id="@+id/action_habitationFragment_to_habitationCardFragment"
+            app:destination="@id/habitationCardFragment" />
+    </fragment>
     <activity
         android:id="@+id/activity"
         android:name="com.hakaton.nomads.ui.MainActivity"
@@ -54,5 +61,13 @@
         android:name="com.hakaton.nomads.ui.fragments.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/habitationCardFragment"
+        android:name="com.hakaton.nomads.ui.fragments.habitationCard.HabitationCardFragment"
+        android:label="HabitationCardFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

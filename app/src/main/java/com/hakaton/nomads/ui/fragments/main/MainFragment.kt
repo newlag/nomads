@@ -88,11 +88,12 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
         }.launchIn(lifecycleScope)
     }
 
-    override fun onClickEvent() {
+
+    override fun onClickEvent(id: String) {
         findNavController().navigate(R.id.eventsFragment)
     }
 
-    override fun onClickHabitation() {
+    override fun onClickHabitation(id: String) {
         findNavController().navigate(R.id.habitationFragment)
     }
 }
