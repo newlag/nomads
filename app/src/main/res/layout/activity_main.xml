@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_click_zone"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@null"
@@ -27,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/image_view_profile"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@drawable/icon_users_profile_unregistered"/>
         </androidx.cardview.widget.CardView>

@@ -44,10 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        GlideWrapper(baseContext).loadImageNoCash(
-            binding.imageViewProfile,
-            LoginSharadPr().getPhotoUri(baseContext)
-        )
+        val cashPhoto = LoginSharadPr().getPhotoUri(baseContext)
+        if (cashPhoto.isNotEmpty()) {
+            GlideWrapper(baseContext).loadImageNoCash(
+                binding.imageViewProfile,
+                LoginSharadPr().getPhotoUri(baseContext)
+            )
+        }
+
 
         val navView: BottomNavigationView = binding.navView
 
@@ -73,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.imageViewProfile.setOnClickListener {
+        binding.cardViewClickZone.setOnClickListener {
             navController.navigate(R.id.profileFragment)
         }
         authLauncher = VK.login(this) { result: VKAuthenticationResult ->
