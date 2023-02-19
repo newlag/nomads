@@ -1,7 +1,7 @@
 package com.hakaton.nomads
 
 import android.app.Application
-import android.util.Log
+import com.hakaton.nomads.data.repositories.local.login.LoginSharadPr
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKTokenExpiredHandler
 import com.yandex.metrica.YandexMetrica
@@ -19,7 +19,8 @@ class SampleApplication : Application() {
     }
 
     private fun initYandexMetrica() {
-        val config: YandexMetricaConfig = YandexMetricaConfig.newConfigBuilder(YANDEX_METRICA_KEY).build()
+        val config: YandexMetricaConfig =
+            YandexMetricaConfig.newConfigBuilder(YANDEX_METRICA_KEY).build()
         YandexMetrica.activate(applicationContext, config)
         YandexMetrica.enableActivityAutoTracking(this)
         YandexMetricaPush.init(applicationContext)
@@ -27,7 +28,7 @@ class SampleApplication : Application() {
 
     private val tokenTracker = object : VKTokenExpiredHandler {
         override fun onTokenExpired() {
-            Log.i("dwdawd", "onTokenExpired")
+            LoginSharadPr().logOut(applicationContext)
         }
     }
 }

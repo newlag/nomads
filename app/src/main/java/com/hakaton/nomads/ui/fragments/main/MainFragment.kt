@@ -63,7 +63,6 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
             }
             // Get new FCM registration token
         })
-        findNavController()
         return binding.root
     }
 
