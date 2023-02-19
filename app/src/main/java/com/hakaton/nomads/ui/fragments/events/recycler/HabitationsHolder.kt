@@ -3,10 +3,8 @@ package com.hakaton.nomads.ui.fragments.events.recycler
 import android.view.View
 import android.widget.TextView
 import com.hakaton.nomads.R
-import com.hakaton.nomads.domain.models.habitations.Habitations
 import com.hakaton.nomads.ui.fragments.main.MainRecyclerClickListener
 import com.hakaton.nomads.ui.fragments.main.adapters.HabitationDataClass
-import com.hakaton.nomads.ui.fragments.main.adapters.HabitationMainDataClass
 import com.hakaton.nomads.ui.fragments.main.adapters.SelectorMainCard
 import com.hakaton.nomads.utils.GlideWrapper
 
@@ -25,6 +23,9 @@ class HabitationsHolder(itemView: View) : BaseElementViewHolder(itemView) {
                 itemView.findViewById(R.id.imageView),
                 it
             )
+        }
+        itemView.setOnClickListener {
+            click.onClickHabitation(data.id)
         }
     }
 }

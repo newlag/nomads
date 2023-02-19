@@ -74,12 +74,15 @@ class FavouriteContentFragment : Fragment(), MainRecyclerClickListener {
         return binding.root
     }
 
-    override fun onClickEvent() {
+
+
+    override fun onClickEvent(id: String) {
         findNavController().navigate(R.id.eventsFragment)
 
     }
 
-    override fun onClickHabitation() {
+    override fun onClickHabitation(id: String) {
         findNavController().navigate(R.id.habitationFragment)
+
     }
 }
