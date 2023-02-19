@@ -35,6 +35,9 @@ class HabitationFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
         _binding = FragmentHabitationBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter =
             adapter
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
         val dataList = SingletonData.getInstance().habitationstList
         if (dataList.isEmpty()) {
             tourismTwoRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0)
