@@ -100,7 +100,7 @@ class CommentsRepositoryImpl : CommentsRepository {
 
     override fun getCommentsForHabitation(habitationId: String): List<Comment> {
         val list: ArrayList<Comment> = ArrayList()
-        val feedbackCount = (0..7).random()
+        val feedbackCount = (2..7).random()
         for (i in 0..feedbackCount) {
             val commentPosition = (commentsHabitation.indices).random()
             val namePosition = (names.indices).random()
