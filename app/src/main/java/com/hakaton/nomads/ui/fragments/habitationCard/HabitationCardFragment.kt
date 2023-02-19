@@ -1,10 +1,13 @@
 package com.hakaton.nomads.ui.fragments.habitationCard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.hakaton.nomads.data.repositories.CommentsRepositoryImpl
 import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentHabitationCardBinding
 import com.hakaton.nomads.domain.models.habitations.Habitations
@@ -28,6 +31,7 @@ class HabitationCardFragment : BaseSecondaryFragment() {
         super.onAttach(context)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,6 +45,9 @@ class HabitationCardFragment : BaseSecondaryFragment() {
             )
         } catch (_: Exception) {
 
+        }
+        binding.toolBar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
         data.details?.mainInfo?.let {
             binding.textViewName.text = it.name
@@ -63,7 +70,10 @@ class HabitationCardFragment : BaseSecondaryFragment() {
             price = 0
         }
         binding.textViewPrice.text = "от $price"
-
+        val com = CommentsRepositoryImpl().getCommentsForHabitation("").get(0)
+        binding.textView10.text = com.userName
+        binding.textView11.text = com.comment
+        binding.retingOtziv.text = (1..5).random().toString()
         return binding.root
     }
 }
