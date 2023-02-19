@@ -5,5 +5,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Details(
-    @Json(name = "main-info") val mainInfo: MainInfo?
+    @Json(name = "main-info") val mainInfo: MainInfo?,
+    val rules:Rules?
 )

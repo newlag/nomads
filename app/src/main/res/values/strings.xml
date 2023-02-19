@@ -4,6 +4,7 @@
     <string name="title_favorite">Избранное</string>
     <string name="title_info">Инфо</string>
     <string name="title_menu">Меню</string>
+    <string name="description_profile">Войдите в профиль , чтобы бронировать жилье и мероприятия, оставляйте отзывы и получите другие возможности.</string>
 
     <integer name="com_vk_sdk_AppId">51557964</integer>
 </resources>

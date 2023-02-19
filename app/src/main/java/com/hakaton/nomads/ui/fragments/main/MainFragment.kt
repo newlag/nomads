@@ -40,27 +40,21 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter =
             adapter
-
-
-        tourismTwoRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0).combine(
-            eventsRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0)
-        ) { tourism, event ->
-            if (tourism != null && event != null) {
-                SingletonData.getInstance().habitationstList.clear()
-                SingletonData.getInstance().habitationstList.addAll(tourism.toList())
-                SingletonData.getInstance().eventList.clear()
-                SingletonData.getInstance().eventList.addAll(event.toList())
-
-                list.clear()
-                list.add(HabitationMainDataClass(tourism.subList(0, 10)))
-                list.add(TwoTextDataClass("", ""))
-                event.subList(0, 10).map {
-                    list.add(EventMainDataClass(it))
-                }
+        val eventList = SingletonData.getInstance().eventList
+        val habitationsList = SingletonData.getInstance().habitationstList
+        if (eventList.isEmpty() && habitationsList.isEmpty()) {
+            binding.progressBar.visibility = View.VISIBLE
+            requestData()
+        } else {
+            list.clear()
+            list.add(HabitationMainDataClass(habitationsList.subList(0, 10)))
+            list.add(TwoTextDataClass("", ""))
+            eventList.subList(0, 10).map {
+                list.add(EventMainDataClass(it))
             }
-        }.onEach {
             adapter.notifyDataSetChanged()
-        }.launchIn(lifecycleScope)
+        }
+
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -69,8 +63,29 @@ class MainFragment : BaseMainFragment(), MainRecyclerClickListener {
             }
             // Get new FCM registration token
         })
-        findNavController()
         return binding.root
+    }
+
+    private fun requestData() {
+        tourismTwoRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0).combine(
+            eventsRepository.getData().shareIn(lifecycleScope, SharingStarted.Eagerly, 0)
+        ) { tourism, event ->
+            if (tourism != null && event != null) {
+                SingletonData.getInstance().habitationstList.clear()
+                SingletonData.getInstance().habitationstList.addAll(tourism.toList())
+                SingletonData.getInstance().eventList.clear()
+                SingletonData.getInstance().eventList.addAll(event.toList())
+                list.clear()
+                list.add(HabitationMainDataClass(tourism.subList(0, 10)))
+                list.add(TwoTextDataClass("", ""))
+                event.subList(0, 10).map {
+                    list.add(EventMainDataClass(it))
+                }
+            }
+        }.onEach {
+            binding.progressBar.visibility = View.GONE
+            adapter.notifyDataSetChanged()
+        }.launchIn(lifecycleScope)
     }
 
     override fun onClickEvent() {

@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.onEach
 abstract class BaseMainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val viewModel = ViewModelProvider(this)[ToolbarViewModel::class.java]
+        val viewModel = ViewModelProvider(requireActivity())[ToolbarViewModel::class.java]
         viewModel.showToolbar()
         super.onViewCreated(view, savedInstanceState)
     }

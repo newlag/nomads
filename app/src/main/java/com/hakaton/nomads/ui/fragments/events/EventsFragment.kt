@@ -22,8 +22,8 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 
 class EventsFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
-    var _binding: FragmentEventsBinding? = null
-    val binding get() = _binding!!
+    private var _binding: FragmentEventsBinding? = null
+    private val binding get() = _binding!!
 
     val list = mutableListOf<SelectorMainCard>()
     val adapter = ElementAdapter(list, this)
@@ -35,8 +35,7 @@ class EventsFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEventsBinding.inflate(inflater, container, false)
-        binding.recyclerView.adapter =
-            adapter
+        binding.recyclerView.adapter = adapter
         return binding.root
     }
 
