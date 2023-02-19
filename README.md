@@ -22,9 +22,7 @@
 	<li>Glide</li>
 	<li>Mobmetrica, Moshi, Room</li>
  </ul>
-<h4>Демо</h4>
-<p>Демо сервиса доступно по адресу: http://demo.test </p>
-<p>Реквизиты тестового пользователя: email: <b>testuser@test.ru</b>, пароль: <b>testuser</b></p>
+
 
 
 
