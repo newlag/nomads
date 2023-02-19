@@ -19,6 +19,7 @@ import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.auth.VKAuthenticationResult
 import com.vk.api.sdk.auth.VKScope
+import com.vk.api.sdk.utils.VKUtils
 import com.vk.sdk.api.users.UsersService
 import com.vk.sdk.api.users.dto.UsersFields
 import com.vk.sdk.api.users.dto.UsersUserFull
@@ -44,10 +45,14 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        GlideWrapper(baseContext).loadImageNoCash(
-            binding.imageViewProfile,
-            LoginSharadPr().getPhotoUri(baseContext)
-        )
+        val cashPhoto = LoginSharadPr().getPhotoUri(baseContext)
+        if (cashPhoto.isNotEmpty()) {
+            GlideWrapper(baseContext).loadImageNoCash(
+                binding.imageViewProfile,
+                LoginSharadPr().getPhotoUri(baseContext)
+            )
+        }
+
 
         val navView: BottomNavigationView = binding.navView
 
@@ -73,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.imageViewProfile.setOnClickListener {
+        binding.cardViewClickZone.setOnClickListener {
             navController.navigate(R.id.profileFragment)
         }
         authLauncher = VK.login(this) { result: VKAuthenticationResult ->

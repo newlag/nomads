@@ -69,5 +69,22 @@
             android:name="id"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.hakaton.nomads.ui.fragments.info.NewsFragment"
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsMoreFragment"
+            app:destination="@id/newsMoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsMoreFragment"
+        android:name="com.hakaton.nomads.ui.fragments.info.NewsMoreFragment"
+        android:label="NewsMoreFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>
