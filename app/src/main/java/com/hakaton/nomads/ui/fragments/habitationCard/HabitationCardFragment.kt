@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.hakaton.nomads.R
 import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentHabitationCardBinding
 import com.hakaton.nomads.domain.models.habitations.Habitations
