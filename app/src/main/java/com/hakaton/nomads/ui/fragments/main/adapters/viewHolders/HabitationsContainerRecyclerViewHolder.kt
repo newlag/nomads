@@ -18,7 +18,7 @@ class HabitationsContainerRecyclerViewHolder(itemView: View) : BaseRecyclerViewH
             selectorMainCard
         )
         itemView.findViewById<View>(R.id.text_view_show_all).setOnClickListener{
-            click.onClickHabitation()
+            click.onClickHabitation("")
         }
 
     }

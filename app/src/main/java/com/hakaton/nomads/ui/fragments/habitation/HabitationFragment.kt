@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.hakaton.nomads.R
 import com.hakaton.nomads.data.repositories.HabitationsRepositoryImpl
 import com.hakaton.nomads.data.repositories.local.SingletonData
 import com.hakaton.nomads.databinding.FragmentHabitationBinding
@@ -55,17 +57,20 @@ class HabitationFragment : BaseSecondaryFragment(), MainRecyclerClickListener {
         return binding.root
     }
 
-    override fun onClickEvent() {
-
-    }
-
-    override fun onClickHabitation() {
-
-    }
 
     override fun onDetach() {
         viewModel.showToolbar()
 
         super.onDetach()
+    }
+
+    override fun onClickEvent(id: String) {
+
+    }
+
+    override fun onClickHabitation(id: String) {
+        val bundle = Bundle()
+        bundle.putString("id", id)
+        findNavController().navigate(R.id.habitationCardFragment, bundle)
     }
 }
